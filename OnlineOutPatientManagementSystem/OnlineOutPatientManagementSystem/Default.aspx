@@ -76,6 +76,7 @@
 
 
                                     <%--<li onclick="RefreshContentForUL('test.aspx','wndTitle')">
+                                        updated for git test
                                         <a href="#">Doctor's Visit</a> 
                                     </li>--%>
 

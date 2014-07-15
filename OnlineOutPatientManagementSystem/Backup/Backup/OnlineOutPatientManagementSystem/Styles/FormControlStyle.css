@@ -1,0 +1,62 @@
+﻿.fieldDiv{ margin-bottom:5px;}
+
+.txtField
+{       text-align:center;
+		border: 1px solid #5D5454;
+		font-size: 11px;
+		height: 16px;
+		padding: 2px 0 0 1px;
+		width:250px;
+		
+}
+
+.txtAreaField
+{
+		border: 1px solid #5D5454;
+		font-size: 11px;
+		height: 36px;
+		padding: 2px 0 0 1px;
+		width:250px;
+}
+
+.comboField
+{
+    text-align:center;
+    border: 1px solid #5D5454;
+	font-size: 11px;
+	height: 20px;
+	padding: 0px 0 0 0px;
+	width:253px;
+}
+
+.num
+{
+	text-align:right;
+}
+
+.buttonField
+{
+    border: 1px solid #5D5454;
+   	width:50px;
+   	font-weight:bold;
+   	font-size: 11px;
+    height: 20px;
+}
+
+
+input:required:invalid, input:focus:invalid {
+  background-image: url(/Styles/img/info.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+
+}
+input:required:valid {
+  background-image: url(/Styles/img/ok.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  
+}
+input:focus{border:2px solid green;} 
+ 
+          
+ 

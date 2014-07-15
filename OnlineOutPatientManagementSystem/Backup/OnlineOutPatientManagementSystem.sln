@@ -1,16 +1,18 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineOutPatientManagementSystem", "OnlineOutPatientManagementSystem\OnlineOutPatientManagementSystem.csproj", "{38376908-4502-4D87-8FB5-B1ED9FA6C4E9}"
-EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "OutPatientModel", "OutPatientModel\OutPatientModel.modelproj", "{9003CC20-25A0-47B4-9D7D-23A963C212E5}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ECC42A39-71ED-495F-9F0B-A284B6BC5C3B}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{86931EA2-AD95-45C5-9378-3F37C18F6A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineOutPatientManagementSystem", "OnlineOutPatientManagementSystem\OnlineOutPatientManagementSystem.csproj", "{38376908-4502-4D87-8FB5-B1ED9FA6C4E9}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "OutPatientModel", "OutPatientModel\OutPatientModel.modelproj", "{9003CC20-25A0-47B4-9D7D-23A963C212E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
