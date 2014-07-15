@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="6eb6639b-d7e1-49bf-a170-2330d0c02012" name="OnLinePrescription" linkedPackageId="c3d91da9-e974-471a-a92b-f04a31ee012b" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="23bf34a2-d693-40cd-9379-84bf919372d8">
+      <profileInstance Id="eb5818d2-ba0b-44ac-881a-3cd9a93b260f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="28cd15e0-0fc5-44ea-82f6-1d959079890e">
+      <profileInstance Id="22deb645-b0fb-4da5-8785-ecc3a054c8b0" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d3f66155-a140-4b35-af17-3362fcf49a35" name="Person" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b7a9c302-041a-4261-b55e-8a3a38a47f3c" />
+        <ownedAttributesInternal>
+          <property Id="cde4db27-2b56-42d4-8b91-0d7637ae7629" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="29e9dc94-752e-4b37-816d-31c7c526b12b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="67c5f90c-c295-49a1-b60f-6a87b0b1a678" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="3d34ebde-0612-4c90-81f1-3c58ecdfbb84" name="FatherName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ed48c5ee-48b6-4b23-ae06-1b942492a2f0" />
+          </property>
+          <property Id="9b905612-b650-4a43-b073-d3fb0fa45196" name="MotherName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="970c1a5f-a5fd-4173-acf4-3cbdd962d16e" />
+          </property>
+          <property Id="dd003277-6003-4f88-8cd7-b5c1ebed9580" name="MaritalStatus" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="687db75c-f562-44aa-a08c-92122fe72c11" />
+          </property>
+          <property Id="997b0293-9520-42f7-88cc-b24e858d18f6" name="DateOfBirth" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="80c5277c-5c92-406f-8505-439b14cad628" />
+          </property>
+          <property Id="2514dccf-9d8d-4de3-86ba-45eb941c4485" name="Age" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6ff71832-5ad6-4a29-8064-eacdd17bdeec" />
+          </property>
+          <property Id="0c732016-13ce-4c55-903f-27a25205f8d1" name="Gender" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="06c9aced-4a98-4e3b-865a-9727d29ca597" />
+          </property>
+          <property Id="3b2f58e8-c4a1-4933-969c-19a3e06d5f50" name="SpouseName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fd7ae8a4-a929-452e-b14d-264793f2ef7f" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="67c5f90c-c295-49a1-b60f-6a87b0b1a678" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fc7770fb-ab87-4841-a821-e67ddb26c24e" name="Patient" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a7313b3f-b316-4528-a69e-98049cbacda1" />
+        <generalsInternal>
+          <generalization Id="64a4843a-4cc4-4d63-8c36-0d877cac5b5e" isSubstitutable="false">
+            <classMoniker Id="d3f66155-a140-4b35-af17-3362fcf49a35" LastKnownName="Person" />
+            <elementDefinition Id="396d2ea0-974f-4563-9b1a-242a809181cd" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="c3d91da9-e974-471a-a92b-f04a31ee012b" name="OutPatientModel">
+    <elementDefinition Id="edf1d869-173f-4516-bbbf-2f0570b60e5b" />
+  </package>
+</logicalClassDesignerModel>

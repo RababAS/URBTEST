@@ -1,0 +1,19 @@
+11:27 AM 4/8/2014
+
+Online Prescription
+
+Compulsory
+01. ChiefComplaince
+02. ProvisionalDx
+
+Minor
+03. DifferentialDx
+04. ConfirmDx
+05. Treatment
+06. Investigation
+
+07. PostiveFindings
+08. NegativeFindings
+09. DentalSign
+10. DentalAdvice
+11. Advice

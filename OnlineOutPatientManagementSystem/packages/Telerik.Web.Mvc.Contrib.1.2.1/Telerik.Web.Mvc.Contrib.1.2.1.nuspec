@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Telerik.Web.Mvc.Contrib</id>
+    <version>1.2.1</version>
+    <title>Telerik Web Mvc Contrib</title>
+    <authors>Luiz</authors>
+    <owners>Luiz</owners>
+    <licenseUrl>http://www.microsoft.com/opensource/licenses.mspx#Ms-PL</licenseUrl>
+    <projectUrl>http://telerikwebmvccontrib.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Add Coffee, Sass and Browser filtering to WebAssets from Telerik MVC Extensions</description>
+    <summary>Add Coffee, Sass and Browser filtering to WebAssets from Telerik MVC Extensions</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>Coffee Sass Telerik</tags>
+    <dependencies>
+      <dependency id="TelerikMvcExtensions" version="2011.1.315" />
+      <dependency id="SassAndCoffee" version="0.5.1" />
+    </dependencies>
+  </metadata>
+</package>

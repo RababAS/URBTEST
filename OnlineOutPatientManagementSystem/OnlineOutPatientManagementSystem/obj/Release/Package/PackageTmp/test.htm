@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Dialog - Default functionality</title>
+    
+ <style type="text/css">
+ 
+ </style>   
+    
+    <!-- Style Includes -->
+
+    
+
+<!-- JavaScript Includes -->
+
+    <script src="Scripts/jquery-2.0.2.min.js" type="text/javascript"></script>
+   
+
+   <!--[if lt IE 9]>
+  <script type="text/javascript" src="Scripts/LightViewjs/excanvas/excanvas.js"></script>
+<![endif]-->
+
+    <script src="Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="Scripts/LightViewjs/lightview/lightview.js" type="text/javascript"></script>
+    <script src="Scripts/LightViewjs/spinners/spinners.min.js" type="text/javascript"></script>
+    <link href="Styles/lightview/lightview.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/WebShim/polyfiller.js" type="text/javascript"></script>
+    
+  <script>
+      $.webshims.polyfill("forms");
+      function test() {
+
+          Lightview.show({url:"test.aspx"});
+          alert("aa");
+             /*   $.window({
+                    title: "Cyclops Studio",
+                    url: "http://urb-bd.org/",closeable:true
+
+                });*/
+      }
+  $(document).ready(function(){
+
+     
+
+      });
+  </script>
+</head>
+<body>
+  <!-- Button that triggers the popup -->
+            <button id="my-button" onclick="test()">POP IT UP</button>
+            <!-- Element to pop up -->
+            <div id="element_to_pop_up">Content of popup</div>
+
+            <a href="test.aspx" class="lightview">Show image</a>
+<input type="text" required value="tss" />
+    <input type="submit" value="Submit" />
+
+
+</body>
+
+
+</html>

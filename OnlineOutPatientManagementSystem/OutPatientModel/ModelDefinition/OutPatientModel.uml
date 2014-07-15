@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="edf1d869-173f-4516-bbbf-2f0570b60e5b"
+  name="OutPatientModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="378b0753-db05-4a31-ad4d-5434be12a459"
+        name="Doctor"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="9df1d093-9652-4c66-8e1a-ee3d1357bd1e"
+            isDerived="false"
+            sourceEndRoleName="Doctor"
+            targetEndRoleName="Prescribe Patient  / Advice patient for investigations"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="905c3d55-c204-452b-8eaf-19104e1e05c2"
+              LastKnownName="Prescribe Patient  / Advice patient for investigations"
+              LastKnownLocation="OutPatientModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b0c33597-d035-4697-a95b-4596eeff3d3d"
+                  name="Doctor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4f14f470-8df1-4e16-88ba-3ddb73a24359"
+                  name="Prescribe Patient  / Advice patient for investigations"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="10f09cf3-b124-4aae-8d56-97637d382eb1"
+        name="Receiptionist"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="da8fa21f-e45d-4137-9d66-09a289ac3cc9"
+            isDerived="false"
+            sourceEndRoleName="Receiptionist"
+            targetEndRoleName="Patient Registration"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0a409ad4-37fe-495c-bcb2-2e5856688c9e"
+              LastKnownName="Patient Registration"
+              LastKnownLocation="OutPatientModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="81a4d07a-1180-460a-b288-6af3b15916ad"
+                  name="Receiptionist"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb03592c-e9b4-4233-9812-7f5ee02c6f08"
+                  name="Patient Registration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="709a53f2-7ea8-44e6-b7e7-82f2cf040559"
+        name="Cashier"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="718ec8d9-fa26-4f4f-8a19-98e9eb5bcee2"
+            isDerived="false"
+            sourceEndRoleName="Cashier"
+            targetEndRoleName="Manage Cash"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="81d3bc2f-0056-48f4-a992-35165ec46e30"
+              LastKnownName="Manage Cash"
+              LastKnownLocation="OutPatientModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9c34cf7b-c8a8-4e2e-9432-e9141acd15f5"
+                  name="Cashier"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd5499d3-302d-4fc6-af21-d7a789034107"
+                  name="Manage Cash"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="19f31c47-fa63-4f4b-981b-f054b789c29a"
+        name="Mdeicine Despenser"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="815bb208-b720-4799-b964-a12a9db49643"
+            isDerived="false"
+            sourceEndRoleName="Mdeicine Despenser"
+            targetEndRoleName="Manage Medicine Stock"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c4455ba3-eab3-4210-83bf-4cf311f3f611"
+              LastKnownName="Manage Medicine Stock / Deliver Medicine"
+              LastKnownLocation="OutPatientModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1e2ce355-4189-44b8-aa9c-fd1c764d5121"
+                  name="Mdeicine Despenser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1cb48969-0d87-4029-8ee7-e0df9ab8a571"
+                  name="Manage Medicine Stock"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="8a71e6bd-8a00-45d6-ac72-3837b114d1a3"
+        name="Lab Technician"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="23a03bcf-ada9-4eee-91f3-bd7e0154b175"
+            isDerived="false"
+            sourceEndRoleName="Lab Technician"
+            targetEndRoleName="Input / View / Print Tests Results"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="16cbe8b4-ac5f-4f1e-a59e-4e4f915325ba"
+              LastKnownName="Input / View / Print Tests Results"
+              LastKnownLocation="OutPatientModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="56f45009-addf-4a91-b718-75a4d15a1e30"
+                  name="Lab Technician"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="faa856cf-80bb-4f63-af6b-2f01edaa16a8"
+                  name="Input / View / Print Tests Results"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+        name="URB Out Patient Service"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0a409ad4-37fe-495c-bcb2-2e5856688c9e"
+        name="Patient Registration"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="dc67942a-3bbd-4df5-bef6-42013356a768">
+            <useCaseMoniker
+              Id="fe6315ab-9704-474f-841c-5f8991f4e6fe"
+              LastKnownName="LogIn"
+              LastKnownLocation="OutPatientModel.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+            LastKnownName="URB Out Patient Service"
+            LastKnownLocation="OutPatientModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fe6315ab-9704-474f-841c-5f8991f4e6fe"
+        name="LogIn"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+            LastKnownName="URB Out Patient Service"
+            LastKnownLocation="OutPatientModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="905c3d55-c204-452b-8eaf-19104e1e05c2"
+        name="Prescribe Patient  / Advice patient for investigations"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="bb6274bd-af0b-4e10-8b0b-c8266577ab1b">
+            <useCaseMoniker
+              Id="fe6315ab-9704-474f-841c-5f8991f4e6fe"
+              LastKnownName="LogIn"
+              LastKnownLocation="OutPatientModel.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+            LastKnownName="URB Out Patient Service"
+            LastKnownLocation="OutPatientModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="81d3bc2f-0056-48f4-a992-35165ec46e30"
+        name="Manage Cash"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="19fcd8ce-851e-4f8f-9957-316bd0cb8e9b">
+            <useCaseMoniker
+              Id="fe6315ab-9704-474f-841c-5f8991f4e6fe"
+              LastKnownName="LogIn"
+              LastKnownLocation="OutPatientModel.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+            LastKnownName="URB Out Patient Service"
+            LastKnownLocation="OutPatientModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c4455ba3-eab3-4210-83bf-4cf311f3f611"
+        name="Manage Medicine Stock / Deliver Medicine"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="ac892c60-bbd4-433f-a798-899011edf1fd">
+            <useCaseMoniker
+              Id="fe6315ab-9704-474f-841c-5f8991f4e6fe"
+              LastKnownName="LogIn"
+              LastKnownLocation="OutPatientModel.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+            LastKnownName="URB Out Patient Service"
+            LastKnownLocation="OutPatientModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="16cbe8b4-ac5f-4f1e-a59e-4e4f915325ba"
+        name="Input / View / Print Tests Results"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="c4f3ede0-ed8a-4044-a7f1-b97c3ab751e3">
+            <useCaseMoniker
+              Id="fe6315ab-9704-474f-841c-5f8991f4e6fe"
+              LastKnownName="LogIn"
+              LastKnownLocation="OutPatientModel.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="9ebd1922-e141-43f4-8c71-4f17acd56a02"
+            LastKnownName="URB Out Patient Service"
+            LastKnownLocation="OutPatientModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="09629913-5269-441b-82b7-38b6086917ee"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8bc581d4-5bfe-40d4-9d47-e5315e361b0d"
+        name="Patient"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="f5e7c862-d9d4-4d80-b727-f27cd4358890"
+            name="PatientID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="OutPatientModel.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b7a9c302-041a-4261-b55e-8a3a38a47f3c"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="29e9dc94-752e-4b37-816d-31c7c526b12b"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="OutPatientModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ed48c5ee-48b6-4b23-ae06-1b942492a2f0"
+            name="FatherName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="970c1a5f-a5fd-4173-acf4-3cbdd962d16e"
+            name="MotherName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="687db75c-f562-44aa-a08c-92122fe72c11"
+            name="MaritalStatus"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="80c5277c-5c92-406f-8505-439b14cad628"
+            name="DateOfBirth"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6ff71832-5ad6-4a29-8064-eacdd17bdeec"
+            name="Age"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="06c9aced-4a98-4e3b-865a-9727d29ca597"
+            name="Gender"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fd7ae8a4-a929-452e-b14d-264793f2ef7f"
+            name="SpouseName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a7313b3f-b316-4528-a69e-98049cbacda1"
+        name="Patient"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="396d2ea0-974f-4563-9b1a-242a809181cd"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b7a9c302-041a-4261-b55e-8a3a38a47f3c"
+              LastKnownName="Person"
+              LastKnownLocation="OutPatientModel.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

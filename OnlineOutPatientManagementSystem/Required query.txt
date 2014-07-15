@@ -1,0 +1,9 @@
+1:08 PM 2/18/2014
+
+
+select CCCode,CCGroup+' > '+CC CG from lkp_ChiefComplaince where CCGroup<>'' order by CG
+
+select c.VisitID,l.CCCode,l.CCGroup+' > '+l.CC CCG,
+c.DurationYY,c.DurationMM,c.DurationDD from ChiefComplaince as c
+inner join lkp_ChiefComplaince l
+on c.CCCode=l.CCCode

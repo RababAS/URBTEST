@@ -1,0 +1,50 @@
+&nbsp;
+<br />
+
+<body>
+    <div>
+        <table style="width:100%;">
+            <tr>
+                <td class="style1">
+                    &nbsp;
+                </td>
+                <td class="style2" style="font-size:x-large;font-style:normal;font-weight:bold">
+                    Prescription Information
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table style="width:100%;">
+            <tr>
+            <fieldset>
+             <legend>Patient's Basic Information</legend>
+                <td class="style3">
+                    &nbsp;</td>
+                </fieldset>
+                <td class="style3">
+                    &nbsp;
+                 </td>
+                <td class="style3">
+                    &nbsp;
+                 </td>
+            </tr>
+            <tr>
+                <td class="style3">
+                    &nbsp;</td>
+                <td class="style3">
+                    &nbsp;
+                 </td>
+                <td class="style3">
+                    &nbsp;
+                 </td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>   

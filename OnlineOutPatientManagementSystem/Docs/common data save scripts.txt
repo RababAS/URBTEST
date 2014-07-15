@@ -1,0 +1,69 @@
+1:21 PM 3/13/2014
+
+<script type="text/javascript">
+		$(document).ready(function () {
+			$('#btnSave').click(function () {
+				var Prescription = {};
+	  			
+				//Basic Info
+	  			Prescription.strPatientID = $("[id*=txtPID]").val();
+	  			Prescription.strRelations = $("[id*=ddlRelation]").val();
+	  			Prescription.strPatientAge = $("[id*=txtAge]").val();
+	  			Prescription.strDrugHistory = $("[id*=txtDrufHis]").val();
+	  			Prescription.strDrugAllergy = $("[id*=ddlDrugAllergy]").val();
+
+	  			//On Examination Informations
+	  			/*
+	  			ddlAnemia ddlOS ddlCervix ddlSpleen ddlClubbing
+	  			ddlVagina ddlHeart ddlVulva ddlJaundice ddlBP------ txtSystolic   txtDiastolic
+	  			ddlLN txtPulse ddlLiver txtTemp ddlLung
+	  			txtWeight ddlOdema txtOthers
+				*/
+
+	  			Prescription.strExaAnemia = $("[id*=ddlAnemia]").val();
+				Prescription.strExaOS = $("[id*=ddlOS]").val();
+				Prescription.strExaCervix = $("[id*=ddlCervix]").val();
+				Prescription.strExaSpleen = $("[id*=ddlSpleen]").val();
+				Prescription.strExaClubbing = $("[id*=ddlClubbing]").val();
+	  			
+				Prescription.strExaVagina = $("[id*=ddlVagina]").val();
+	  			Prescription.strExaHeart = $("[id*=ddlHeart]").val();
+	  			Prescription.strExaVulva = $("[id*=ddlVulva]").val();
+	  			Prescription.strExaJaundice = $("[id*=ddlJaundice]").val();
+	  			//Blood Pressure********** strExaSystolic   strExaDiastolic
+	  			Prescription.strExaSystolic = $("[id*=txtSystolic]").val();
+	  			Prescription.strExaDiastolic = $("[id*=txtDiastolic]").val();
+
+	  			
+				Prescription.strExaL_N = $("[id*=ddlLN]").val();
+				Prescription.strExaPulse = $("[id*=txtPulse]").val();
+	  			Prescription.strExaLiver = $("[id*=ddlLiver]").val();
+	  			Prescription.strExaTemp = $("[id*=txtTemp]").val();
+	  			Prescription.strExaLung = $("[id*=ddlLung]").val();
+	  			
+				Prescription.strExaWt = $("[id*=txtWeight]").val();
+	  			Prescription.strExaOedema = $("[id*=ddlOdema]").val();
+	  			Prescription.strExaOthers = $("[id*=txtOthers]").val();
+
+	  			//Others
+	  			Prescription.strReferredCode = $("[id*=ddlReferred]").val();
+	  			Prescription.strReferred = $("#ddlReferred :selected").text();
+	  			Prescription.strDoctorCode1 = $("[id*=ddlDoctorsName]").val();
+
+
+	  			$.ajax({
+	  				type: "POST",
+	  				url: "/WebService/LookUp.asmx/SavePrescriptions",
+	  				data: '{Prescription: ' + JSON.stringify(Prescription) + '}',
+	  				contentType: "application/json; charset=utf-8",
+	  				dataType: "json",
+	  				
+					success: function (response) {
+	  					alert("Prescription data has been added successfully.");
+	  					window.location.reload();
+	  				}
+	  			});
+	  			return false;
+			});
+		});
+		</script>

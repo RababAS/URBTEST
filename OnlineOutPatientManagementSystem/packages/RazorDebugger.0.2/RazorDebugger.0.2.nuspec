@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>RazorDebugger</id>
+    <version>0.2</version>
+    <title>RazorDebugger</title>
+    <authors>David Fowler</authors>
+    <owners>David Fowler</owners>
+    <licenseUrl>http://www.opensource.org/licenses/apache2.0.php</licenseUrl>
+    <projectUrl>http://weblogs.asp.net/davidfowler/archive/2010/11/14/razor-debugger-for-asp-net-webpages.aspx</projectUrl>
+    <iconUrl>http://cdn.bitbucket.org/dfowler/razor-debugger/downloads/RazorDebugger.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple web based debugger for Razor pages.</description>
+    <summary>A simple web based debugger for Razor pages.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>ASPNETWEBPAGES</tags>
+  </metadata>
+</package>

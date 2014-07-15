@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HEALS" Class="HEALSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=URB-DC\URBSQLSERVER;Initial Catalog=HEALS;User ID=URBWebAppUser" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HEALSConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.RespondentInfo" Member="RespondentInfos">
+    <Type Name="RespondentInfo">
+      <Column Name="RespondentID" Type="System.String" DbType="NVarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudyName" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SpouseID" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="SpouseName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FatherName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MotherName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MotherID" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="F_H_Sp_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ResAge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CurAge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecruitmentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResSex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VillageCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParaCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParaName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VillageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfDeath" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResID_StudyName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BESTID" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="DoctorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OperatorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InterviewDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NationalID" Type="System.String" DbType="NVarChar(17)" CanBeNull="true" />
+      <Column Name="MobileNo" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="GPS_LAT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GPS_LONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Eligibility" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InterviewerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastUpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VHWCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DistName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ThanaName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FixUnion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

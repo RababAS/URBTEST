@@ -1,0 +1,44 @@
+3:18 PM 1/29/2014
+
+
+                                            <asp:CompareValidator runat="server" ID="Comparevalidator1" ValueToCompare="Select Thana"
+                                            Operator="NotEqual" ControlToValidate="ddlThana" ErrorMessage="Please Select Thana First!"
+                                            CssClass="validationClass" />
+
+
+function VerifyThana() {
+//                var x = document.getElementById('<%#ddlThana.ClientID%>');
+//                var txt;
+//                if (x.value == 'Select Thana') {
+//                    txt = "Please Select Thana Name First!!";
+//                }
+//                else {
+//                    txt = "Selected option: " + x.value;
+//                }
+                //                alert(txt);
+
+
+//                if ($('#ddlThana').val() == "Select Thana") {
+//                    alert("Please Select Tahan Name First!!");
+//                    $('#ddlThana').focus();
+//                    return false;
+//                }
+
+
+//                var cmbID = "<%#ddlThana.ClientID %>";
+//                if (document.getElementById(cmbID).selectedIndex == 00) {
+//                    alert("Please Select Thana Name First!!");
+//                    return false;
+//                }
+                //                return true;
+
+
+                var City = document.getElementById('<%=ddlThana.ClientID %>').value;
+                if (Firstname == "Select Thana") {
+                    alert("Please Select Thana Name First!!");
+                    return false;
+                }
+
+                return true;
+
+            }

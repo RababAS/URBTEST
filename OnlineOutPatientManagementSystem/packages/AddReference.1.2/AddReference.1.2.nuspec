@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AddReference</id>
+    <version>1.2</version>
+    <title>AddReference</title>
+    <authors>Tugberk Ugurlu</authors>
+    <owners>Tugberk Ugurlu</owners>
+    <projectUrl>http://www.tugberkugurlu.com/contact</projectUrl>
+    <iconUrl>http://www.tugberkugurlu.com/Content/Images/UploadedByAuthors/@Personal/tugberk_ugurlu_head_shot_original.JPG</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Are you sick of Add Reference dialog box inside Visual Studio? I am. So here it is. From now on, add your references from PMC (Package Manager Console). For instance, in order to add System.Web as reference to the project named MyApp1, type this; Add-Reference System.Web MyApp1 in order to remove System.Web from the project named MyApp1, type this; Remove-Reference System.Web MyApp1. (Big thanks to @davidfowl for making the code and functions better)</description>
+    <summary>Are you sick of Add Reference dialog box inside Visual Studio? I am. So here it is. From now on, add your references from PMC (Package Manager Console)...</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>VisualStudio IDE Awesome Reference</tags>
+  </metadata>
+</package>

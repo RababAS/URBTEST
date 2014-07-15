@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>WebUI</id>
+    <version>1.0.6.1</version>
+    <title>WebUI</title>
+    <authors>Telerik</authors>
+    <owners>Telerik</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dev Package</description>
+    <summary>Package summary</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <references>
+      <reference file="ClassLibrary1.dll" />
+    </references>
+  </metadata>
+</package>

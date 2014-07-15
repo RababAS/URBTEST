@@ -1,0 +1,64 @@
+
+
+CREATE SCALAR-VALUED FUNCTION
+==============================
+
+USE [OnlinePrescription]
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetCurrentRegistrationID]    Script Date: 01/22/2014 21:41:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date, ,>
+-- Description:	<Description, ,>
+-- =============================================
+ALTER FUNCTION [dbo].[GetCurrentRegistrationID]
+(
+	-- Add the parameters for the function here
+)
+RETURNS Varchar (11)
+AS
+BEGIN
+	-- Declare the return variable here
+	Declare @PId varchar (11)
+	Declare @RPId varchar (11)
+	declare @CurDate as varchar (10)
+	declare @CurYMDate as varchar (6)
+	select @CurDate = CONVERT(varchar(10),GETDATE(),112)
+	select @CurYMDate= cast(LEFT(@CurDate,6) as varchar (6))
+	
+	
+	
+		select @PId = max(PatientID) from dbo.PatientBasicInfo
+
+if (@PId is null)
+	BEGIN
+		SELECT @RPId = @CurYMDate +'00001'
+	END
+	else
+	begin
+		declare @MaxDatePart as bigint
+		declare @CurrentDatePart as bigint
+		
+		set @MaxDatePart= cast(left(@PID,6) as bigint)
+		set @CurrentDatePart = @CurYMDate
+		
+	if (@MaxDatePart <> @CurrentDatePart)
+	begin
+		select @RPID = cast(@CurrentDatePart as varchar (6))+'00001'
+	end
+	else
+	begin
+		declare @IdPart as int
+		set @IdPart= cast(right(@PId,5) as int) + 1
+		select @RPId = cast(@CurrentDatePart as varchar (6))+ replicate ('0',5-len(@IdPart))+cast(@IdPart as varchar)
+	end
+	
+	end
+	-- Return the result of the function
+	RETURN @RPId
+
+END

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4a58804f-f381-4bf5-845e-ee21fefed911" name="UMLUseCaseOutPatientManagementSystem" linkedPackageId="b4a37b31-9e82-4baf-b9e8-f9fca40b944e" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="8148c00a-f835-44c8-8467-25bc1ece00c9">
+      <profileInstance Id="e7118932-b66e-4a79-866b-4c3237550eb1" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b5dd6598-62ae-4c1b-af0e-5494c1c04e8b">
+      <profileInstance Id="498faa2b-4c1d-41c4-a2b6-cc1c08c874fd" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="5e9827ed-32bd-4a6c-b7c7-f41e6d181342" name="Doctor" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="378b0753-db05-4a31-ad4d-5434be12a459" />
+        <targetEnds>
+          <association Id="31b4fe74-4d47-41c6-9665-9bf2ef61df74" isDerived="false" sourceEndRoleName="Doctor" targetEndRoleName="Prescribe Patient  / Advice patient for investigations" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="51edc1e6-e0c9-4f45-bb24-af92e64f6e54" LastKnownName="Prescribe Patient  / Advice patient for investigations" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="59f419c3-a10a-4511-a191-534fe8492a46" name="Doctor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b0c33597-d035-4697-a95b-4596eeff3d3d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0ed6c3b-1fb1-4c74-9b34-85576f2304f2" name="Prescribe Patient  / Advice patient for investigations" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4f14f470-8df1-4e16-88ba-3ddb73a24359" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9df1d093-9652-4c66-8e1a-ee3d1357bd1e" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="78d5f09a-1a5a-443c-8b53-7593a17a738d" name="Receiptionist" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="10f09cf3-b124-4aae-8d56-97637d382eb1" />
+        <targetEnds>
+          <association Id="88c2c0ba-daf4-4ccc-9f0e-2be6b5a35ce7" isDerived="false" sourceEndRoleName="Receiptionist" targetEndRoleName="Patient Registration" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="73a76e1d-dceb-40c7-9426-709d1f32f319" LastKnownName="Patient Registration" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cef8b74d-bd6d-41a7-8d30-570e2f7a768f" name="Receiptionist" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="81a4d07a-1180-460a-b288-6af3b15916ad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="29f87648-0a73-409e-a7e3-4f5ac8aed49c" name="Patient Registration" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bb03592c-e9b4-4233-9812-7f5ee02c6f08" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="da8fa21f-e45d-4137-9d66-09a289ac3cc9" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="473ef4d0-81f5-4a74-8461-6f6567876f80" name="Cashier" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="709a53f2-7ea8-44e6-b7e7-82f2cf040559" />
+        <targetEnds>
+          <association Id="122aaa81-4953-4b80-a513-53c6463dfb44" isDerived="false" sourceEndRoleName="Cashier" targetEndRoleName="Manage Cash" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f1edaf41-6ba2-42c8-9dae-aede333c6271" LastKnownName="Manage Cash" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2f62d411-e4d0-4413-a527-2ddaafbf855e" name="Cashier" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9c34cf7b-c8a8-4e2e-9432-e9141acd15f5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7ae056c8-38d4-4375-a728-d7f85640f4e9" name="Manage Cash" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bd5499d3-302d-4fc6-af21-d7a789034107" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="718ec8d9-fa26-4f4f-8a19-98e9eb5bcee2" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a2658392-800a-4a95-83fc-383c25014c40" name="Mdeicine Despenser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="19f31c47-fa63-4f4b-981b-f054b789c29a" />
+        <targetEnds>
+          <association Id="096f551d-20f8-40e2-ad0e-8145adc5d704" isDerived="false" sourceEndRoleName="Mdeicine Despenser" targetEndRoleName="Manage Medicine Stock" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e233a38f-f12b-40b6-8380-bc4207e98e0e" LastKnownName="Manage Medicine Stock / Deliver Medicine" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="481d53ad-ba18-4f68-abf7-425ab98101b0" name="Mdeicine Despenser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1e2ce355-4189-44b8-aa9c-fd1c764d5121" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bda66234-0357-4f39-b3f8-680f2c6a4b38" name="Manage Medicine Stock" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1cb48969-0d87-4029-8ee7-e0df9ab8a571" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="815bb208-b720-4799-b964-a12a9db49643" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="80108bbd-8e98-492e-818c-1269d1749bbf" name="Lab Technician" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8a71e6bd-8a00-45d6-ac72-3837b114d1a3" />
+        <targetEnds>
+          <association Id="6c350f0f-10aa-41da-8787-75ae62c6a47e" isDerived="false" sourceEndRoleName="Lab Technician" targetEndRoleName="Input / View / Print Tests Results" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0caac27c-1129-4875-99e8-029570b3a7b5" LastKnownName="Input / View / Print Tests Results" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aa8b16ba-5929-4edc-88a1-676d5df911cb" name="Lab Technician" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="56f45009-addf-4a91-b718-75a4d15a1e30" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ab3e0c7e-cde0-438f-b7a5-8ce52a198e42" name="Input / View / Print Tests Results" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="faa856cf-80bb-4f63-af6b-2f01edaa16a8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="23a03bcf-ada9-4eee-91f3-bd7e0154b175" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" name="URB Out Patient Service" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9ebd1922-e141-43f4-8c71-4f17acd56a02" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="73a76e1d-dceb-40c7-9426-709d1f32f319" name="Patient Registration" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0a409ad4-37fe-495c-bcb2-2e5856688c9e" />
+        <suppliersInternal>
+          <dependency Id="70ae9a47-8ae6-4b16-aa29-cf1f88f09376">
+            <useCaseMoniker Id="c7a0ee24-0255-490d-97d0-b2eec2788cf7" LastKnownName="LogIn" />
+            <elementDefinition Id="dc67942a-3bbd-4df5-bef6-42013356a768" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" LastKnownName="URB Out Patient Service" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c7a0ee24-0255-490d-97d0-b2eec2788cf7" name="LogIn" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fe6315ab-9704-474f-841c-5f8991f4e6fe" />
+        <subjects>
+          <subsystemMoniker Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" LastKnownName="URB Out Patient Service" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="51edc1e6-e0c9-4f45-bb24-af92e64f6e54" name="Prescribe Patient  / Advice patient for investigations" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="905c3d55-c204-452b-8eaf-19104e1e05c2" />
+        <suppliersInternal>
+          <dependency Id="2d5c887f-0773-47be-b844-29286bf0d622">
+            <useCaseMoniker Id="c7a0ee24-0255-490d-97d0-b2eec2788cf7" LastKnownName="LogIn" />
+            <elementDefinition Id="bb6274bd-af0b-4e10-8b0b-c8266577ab1b" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" LastKnownName="URB Out Patient Service" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f1edaf41-6ba2-42c8-9dae-aede333c6271" name="Manage Cash" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="81d3bc2f-0056-48f4-a992-35165ec46e30" />
+        <suppliersInternal>
+          <dependency Id="79de71b2-e9ca-4da2-9e8d-0e74595132b3">
+            <useCaseMoniker Id="c7a0ee24-0255-490d-97d0-b2eec2788cf7" LastKnownName="LogIn" />
+            <elementDefinition Id="19fcd8ce-851e-4f8f-9957-316bd0cb8e9b" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" LastKnownName="URB Out Patient Service" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e233a38f-f12b-40b6-8380-bc4207e98e0e" name="Manage Medicine Stock / Deliver Medicine" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c4455ba3-eab3-4210-83bf-4cf311f3f611" />
+        <suppliersInternal>
+          <dependency Id="82590116-169c-437f-97b1-98d2a0fa10c0">
+            <useCaseMoniker Id="c7a0ee24-0255-490d-97d0-b2eec2788cf7" LastKnownName="LogIn" />
+            <elementDefinition Id="ac892c60-bbd4-433f-a798-899011edf1fd" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" LastKnownName="URB Out Patient Service" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0caac27c-1129-4875-99e8-029570b3a7b5" name="Input / View / Print Tests Results" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="16cbe8b4-ac5f-4f1e-a59e-4e4f915325ba" />
+        <suppliersInternal>
+          <dependency Id="567c89fc-6e90-4547-8ba6-c2556b3ad83d">
+            <useCaseMoniker Id="c7a0ee24-0255-490d-97d0-b2eec2788cf7" LastKnownName="LogIn" />
+            <elementDefinition Id="c4f3ede0-ed8a-4044-a7f1-b97c3ab751e3" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="69e2a93e-f0f1-4387-9283-ddb41af6f713" LastKnownName="URB Out Patient Service" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="b4a37b31-9e82-4baf-b9e8-f9fca40b944e" name="OutPatientModel">
+    <elementDefinition Id="edf1d869-173f-4516-bbbf-2f0570b60e5b" />
+  </package>
+</useCaseModelRoot>

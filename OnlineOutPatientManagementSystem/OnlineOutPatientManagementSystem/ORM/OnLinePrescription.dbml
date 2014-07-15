@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OnLinePrescription" Class="OnLinePrescriptionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=URB-DC\URBSQLSERVER;Initial Catalog=OnLinePrescription;User ID=URBWebAppUser" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ApplicationServices" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AdviceBangla" Member="AdviceBanglas">
+    <Type Name="AdviceBangla">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ABCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_AdviceBangla" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_AdviceBangla_AdviceBangla" Member="lkp_AdviceBangla" ThisKey="ABCode" OtherKey="ABCode" Type="lkp_AdviceBangla" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransectionDetails" Member="TransectionDetails">
+    <Type Name="TransectionDetail">
+      <Column Name="TranID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LabTestID" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="TranDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TranType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TranAmount" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="LabTestInfo_TransectionDetail" Member="LabTestInfo" ThisKey="LabTestID" OtherKey="LabTestID" Type="LabTestInfo" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="lkp_TransectionType_TransectionDetail" Member="lkp_TransectionType" ThisKey="TranType" OtherKey="TTCode" Type="lkp_TransectionType" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AspNetRoles" Member="AspNetRoles">
+    <Type Name="AspNetRole">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="AspNetRole_AspNetUserRole" Member="AspNetUserRoles" ThisKey="Id" OtherKey="RoleId" Type="AspNetUserRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AspNetUserClaims" Member="AspNetUserClaims">
+    <Type Name="AspNetUserClaim">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="ClaimType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClaimValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="AspNetUser_AspNetUserClaim" Member="AspNetUser" ThisKey="UserId" OtherKey="Id" Type="AspNetUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AspNetUserLogins" Member="AspNetUserLogins">
+    <Type Name="AspNetUserLogin">
+      <Column Name="LoginProvider" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProviderKey" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AspNetUser_AspNetUserLogin" Member="AspNetUser" ThisKey="UserId" OtherKey="Id" Type="AspNetUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AspNetUserRoles" Member="AspNetUserRoles">
+    <Type Name="AspNetUserRole">
+      <Column Name="UserId" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AspNetRole_AspNetUserRole" Member="AspNetRole" ThisKey="RoleId" OtherKey="Id" Type="AspNetRole" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="AspNetUser_AspNetUserRole" Member="AspNetUser" ThisKey="UserId" OtherKey="Id" Type="AspNetUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChiefComplaince" Member="ChiefComplainces">
+    <Type Name="ChiefComplaince">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CCCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DurationYY" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DurationMM" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DurationDD" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_ChiefComplaince" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_ChiefComplaince_ChiefComplaince" Member="lkp_ChiefComplaince" ThisKey="CCCode" OtherKey="CCCode" Type="lkp_ChiefComplaince" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClinicVisitHistory" Member="ClinicVisitHistories">
+    <Type Name="ClinicVisitHistory">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="VisitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DrugHistory" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DrugAllergy" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Anemia" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Cervix" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Clubbing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Heart" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Jaundice" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="L_N" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Liver" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Lung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Oedema" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="OS" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="Spleen" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Vagina" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="Vulva" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="Systolic" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Diastolic" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Pulse" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Temperature" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Others" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReferredCode" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="NextVisitDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ClinicVisitHistory_AdviceBangla" Member="AdviceBanglas" ThisKey="VisitID" OtherKey="VisitID" Type="AdviceBangla" />
+      <Association Name="ClinicVisitHistory_ChiefComplaince" Member="ChiefComplainces" ThisKey="VisitID" OtherKey="VisitID" Type="ChiefComplaince" />
+      <Association Name="ClinicVisitHistory_ConfirmDx" Member="ConfirmDxes" ThisKey="VisitID" OtherKey="VisitID" Type="ConfirmDx" />
+      <Association Name="ClinicVisitHistory_DentalAdvice" Member="DentalAdvices" ThisKey="VisitID" OtherKey="VisitID" Type="DentalAdvice" />
+      <Association Name="ClinicVisitHistory_DentalSign" Member="DentalSigns" ThisKey="VisitID" OtherKey="VisitID" Type="DentalSign" />
+      <Association Name="ClinicVisitHistory_DifferentialDx" Member="DifferentialDxes" ThisKey="VisitID" OtherKey="VisitID" Type="DifferentialDx" />
+      <Association Name="ClinicVisitHistory_Investigation" Member="Investigations" ThisKey="VisitID" OtherKey="VisitID" Type="Investigation" />
+      <Association Name="ClinicVisitHistory_MedicineDetail" Member="MedicineDetails" ThisKey="VisitID" OtherKey="VisitID" Type="MedicineDetail" />
+      <Association Name="ClinicVisitHistory_NegativeFinding" Member="NegativeFindings" ThisKey="VisitID" OtherKey="VisitID" Type="NegativeFinding" />
+      <Association Name="ClinicVisitHistory_PositiveFinding" Member="PositiveFindings" ThisKey="VisitID" OtherKey="VisitID" Type="PositiveFinding" />
+      <Association Name="ClinicVisitHistory_ProvisionalDx" Member="ProvisionalDxes" ThisKey="VisitID" OtherKey="VisitID" Type="ProvisionalDx" />
+      <Association Name="DoctorVisitInfo_ClinicVisitHistory" Member="DoctorVisitInfo" ThisKey="VisitID" OtherKey="VisitID" Type="DoctorVisitInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConfirmDx" Member="ConfirmDxes">
+    <Type Name="ConfirmDx">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CDCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_ConfirmDx" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_ProvisionalDx_ConfirmDx" Member="lkp_ProvisionalDx" ThisKey="CDCode" OtherKey="PDCode" Type="lkp_ProvisionalDx" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DentalAdvice" Member="DentalAdvices">
+    <Type Name="DentalAdvice">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DACode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATeethNo" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="ClinicVisitHistory_DentalAdvice" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_DentalAdvice_DentalAdvice" Member="lkp_DentalAdvice" ThisKey="DACode" OtherKey="DACode" Type="lkp_DentalAdvice" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DentalSign" Member="DentalSigns">
+    <Type Name="DentalSign">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DSCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DSTeethNo" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="ClinicVisitHistory_DentalSign" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_DentalSign_DentalSign" Member="lkp_DentalSign" ThisKey="DSCode" OtherKey="DSCode" Type="lkp_DentalSign" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DifferentialDx" Member="DifferentialDxes">
+    <Type Name="DifferentialDx">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DDCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_DifferentialDx" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_ProvisionalDx_DifferentialDx" Member="lkp_ProvisionalDx" ThisKey="DDCode" OtherKey="PDCode" Type="lkp_ProvisionalDx" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DoctorVisitInfo" Member="DoctorVisitInfos">
+    <Type Name="DoctorVisitInfo">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="AgeYY" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AgeMM" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AgeDD" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="DoctorCode" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DoctorFee" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="ReceivedBy" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DoctorVisitInfo_ClinicVisitHistory" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" Cardinality="One" />
+      <Association Name="lkp_DoctorsName_DoctorVisitInfo" Member="lkp_DoctorsName" ThisKey="DoctorCode" OtherKey="DNCode" Type="lkp_DoctorsName" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="PatientBasicInfo_DoctorVisitInfo" Member="PatientBasicInfo" ThisKey="PatientID" OtherKey="PatientID" Type="PatientBasicInfo" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FullFreeDescription" Member="FullFreeDescriptions">
+    <Type Name="FullFreeDescription">
+      <Column Name="LabID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TestCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Investigations" Member="Investigations">
+    <Type Name="Investigation">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InvCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_Investigation" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_Investigation_Investigation" Member="lkp_Investigation" ThisKey="InvCode" OtherKey="InvCode" Type="lkp_Investigation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LabTestInfo" Member="LabTestInfos">
+    <Type Name="LabTestInfo">
+      <Column Name="LabTestID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TestDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AgeYY" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AgeMM" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AgeDD" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="HeightCM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="WeightKG" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="HipCM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="WaistCM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="URBDoctor" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="FromOutOfURB" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TotalBill" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="DiscountBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AdvancePayment" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="DueBill" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="PaidStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CashRcvdDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RptDelivered" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RptDeliveredDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ReceivedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="LabTestInfo_TransectionDetail" Member="TransectionDetails" ThisKey="LabTestID" OtherKey="LabTestID" Type="TransectionDetail" />
+      <Association Name="LabTestInfo_LabTestInfoDetail" Member="LabTestInfoDetails" ThisKey="LabTestID" OtherKey="LabTestID" Type="LabTestInfoDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LabTestInfoDetails" Member="LabTestInfoDetails">
+    <Type Name="LabTestInfoDetail">
+      <Column Name="LabTestID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TNDCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LNCode" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TestFee" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="IsFree" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="LabTestInfo_LabTestInfoDetail" Member="LabTestInfo" ThisKey="LabTestID" OtherKey="LabTestID" Type="LabTestInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_LabName_LabTestInfoDetail" Member="lkp_LabName" ThisKey="LNCode" OtherKey="LNCode" Type="lkp_LabName" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="lkp_TestNameDetail_LabTestInfoDetail" Member="lkp_TestNameDetail" ThisKey="TNDCode" OtherKey="TNDCode" Type="lkp_TestNameDetail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_AdviceBangla" Member="lkp_AdviceBanglas">
+    <Type Name="lkp_AdviceBangla">
+      <Column Name="ABCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ABDesc" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="lkp_AdviceBangla_AdviceBangla" Member="AdviceBanglas" ThisKey="ABCode" OtherKey="ABCode" Type="AdviceBangla" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_AreaDetails" Member="lkp_AreaDetails">
+    <Type Name="lkp_AreaDetail">
+      <Column Name="AreaCode" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DivCode" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="DivName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DistCode" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DistName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ThanaCode" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="ThanaName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_AreaDetail_PatientBasicInfo" Member="PatientBasicInfos" ThisKey="AreaCode" OtherKey="AreaCode" Type="PatientBasicInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Cashier" Member="lkp_Cashiers">
+    <Type Name="lkp_Cashier">
+      <Column Name="CashierCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CashierName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_ChiefComplaince" Member="lkp_ChiefComplainces">
+    <Type Name="lkp_ChiefComplaince">
+      <Column Name="CCCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CCGroup" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CCDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="lkp_ChiefComplaince_ChiefComplaince" Member="ChiefComplainces" ThisKey="CCCode" OtherKey="CCCode" Type="ChiefComplaince" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_ConfirmDx" Member="lkp_ConfirmDxes">
+    <Type Name="lkp_ConfirmDx">
+      <Column Name="CDCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CDDesc" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_DentalAdvice" Member="lkp_DentalAdvices">
+    <Type Name="lkp_DentalAdvice">
+      <Column Name="DACode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DADesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_DentalAdvice_DentalAdvice" Member="DentalAdvices" ThisKey="DACode" OtherKey="DACode" Type="DentalAdvice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_DentalSign" Member="lkp_DentalSigns">
+    <Type Name="lkp_DentalSign">
+      <Column Name="DSCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DSDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_DentalSign_DentalSign" Member="DentalSigns" ThisKey="DSCode" OtherKey="DSCode" Type="DentalSign" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_District" Member="lkp_Districts">
+    <Type Name="lkp_District">
+      <Column Name="DivisionCode" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="DistrictCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DistrictName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Division" Member="lkp_Divisions">
+    <Type Name="lkp_Division">
+      <Column Name="DivisionCode" Type="System.String" DbType="NVarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DivisionName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_DoctorsName" Member="lkp_DoctorsNames">
+    <Type Name="lkp_DoctorsName">
+      <Column Name="DNCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DoctorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DoctorFee" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="lkp_DoctorsName_DoctorVisitInfo" Member="DoctorVisitInfos" ThisKey="DNCode" OtherKey="DoctorCode" Type="DoctorVisitInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Frequency" Member="lkp_Frequencies">
+    <Type Name="lkp_Frequency">
+      <Column Name="FreCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FreDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FreCount" Type="System.Decimal" DbType="Decimal(5,1)" CanBeNull="true" />
+      <Association Name="lkp_Frequency_MedicineDetail" Member="MedicineDetails" ThisKey="FreCode" OtherKey="FreCode" Type="MedicineDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_GenericName" Member="lkp_GenericNames">
+    <Type Name="lkp_GenericName">
+      <Column Name="GNCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GNDesc" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_ICD10Code" Member="lkp_ICD10Codes">
+    <Type Name="lkp_ICD10Code">
+      <Column Name="ICDCode" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ICDDesc" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ICDTitle" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ICDDesc2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Investigations" Member="lkp_Investigations">
+    <Type Name="lkp_Investigation">
+      <Column Name="InvCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="lkp_Investigation_Investigation" Member="Investigations" ThisKey="InvCode" OtherKey="InvCode" Type="Investigation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_LabName" Member="lkp_LabNames">
+    <Type Name="lkp_LabName">
+      <Column Name="LNCode" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LabName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_LabName_LabTestInfoDetail" Member="LabTestInfoDetails" ThisKey="LNCode" OtherKey="LNCode" Type="LabTestInfoDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_MedicineContains" Member="lkp_MedicineContains">
+    <Type Name="lkp_MedicineContain">
+      <Column Name="MCCode" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MDDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_MedicineContain_lkp_MedicineName" Member="lkp_MedicineNames" ThisKey="MCCode" OtherKey="MCCode" Type="lkp_MedicineName" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_MedicineForm" Member="lkp_MedicineForms">
+    <Type Name="lkp_MedicineForm">
+      <Column Name="MFCode" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MFDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="lkp_MedicineForm_lkp_MedicineName" Member="lkp_MedicineNames" ThisKey="MFCode" OtherKey="MFCode" Type="lkp_MedicineName" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_MedicineName" Member="lkp_MedicineNames">
+    <Type Name="lkp_MedicineName">
+      <Column Name="MNCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TradeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GNCode" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MFCode" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Strength" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUCode" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MedicinePrice" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="MCCode" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="PerContain" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="StockInHand" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MedReorderPoint" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="lkp_MedicineName_MedicineDetail" Member="MedicineDetails" ThisKey="MNCode" OtherKey="MNCode" Type="MedicineDetail" />
+      <Association Name="lkp_MedicineContain_lkp_MedicineName" Member="lkp_MedicineContain" ThisKey="MCCode" OtherKey="MCCode" Type="lkp_MedicineContain" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_MedicineForm_lkp_MedicineName" Member="lkp_MedicineForm" ThisKey="MFCode" OtherKey="MFCode" Type="lkp_MedicineForm" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="lkp_StrengthUnit_lkp_MedicineName" Member="lkp_StrengthUnit" ThisKey="SUCode" OtherKey="SUCode" Type="lkp_StrengthUnit" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_NegativeFindings" Member="lkp_NegativeFindings">
+    <Type Name="lkp_NegativeFinding">
+      <Column Name="NFCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NFDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_NegativeFinding_NegativeFinding" Member="NegativeFindings" ThisKey="NFCode" OtherKey="NFCode" Type="NegativeFinding" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_OnExamination" Member="lkp_OnExaminations">
+    <Type Name="lkp_OnExamination">
+      <Column Name="ExaCode" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Anemia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cervix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Clubbing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Heart" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Jaundice" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Liver" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lung" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Oedema" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Spleen" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Vagina" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Vulva" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_PositiveFindings" Member="lkp_PositiveFindings">
+    <Type Name="lkp_PositiveFinding">
+      <Column Name="PFCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PFDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_PositiveFinding_PositiveFinding" Member="PositiveFindings" ThisKey="PFCode" OtherKey="PFCode" Type="PositiveFinding" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_ProvisionalDx" Member="lkp_ProvisionalDxes">
+    <Type Name="lkp_ProvisionalDx">
+      <Column Name="PDCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PDGroup" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PDDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ICDCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="lkp_ProvisionalDx_ConfirmDx" Member="ConfirmDxes" ThisKey="PDCode" OtherKey="CDCode" Type="ConfirmDx" />
+      <Association Name="lkp_ProvisionalDx_DifferentialDx" Member="DifferentialDxes" ThisKey="PDCode" OtherKey="DDCode" Type="DifferentialDx" />
+      <Association Name="lkp_ProvisionalDx_ProvisionalDx" Member="ProvisionalDxes" ThisKey="PDCode" OtherKey="PDCode" Type="ProvisionalDx" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Reffered" Member="lkp_Reffereds">
+    <Type Name="lkp_Reffered">
+      <Column Name="RefCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RefDesc" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_RegistrationFee" Member="lkp_RegistrationFees">
+    <Type Name="lkp_RegistrationFee">
+      <Column Name="RFCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RFTaka" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Relationship" Member="lkp_Relationships">
+    <Type Name="lkp_Relationship">
+      <Column Name="RelCode" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RelDesc" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RelMedDiscount" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="RelTestDiscount" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="lkp_Relationship_PatientBasicInfo" Member="PatientBasicInfos" ThisKey="RelCode" OtherKey="RelCode" Type="PatientBasicInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_StaffInfo" Member="lkp_StaffInfos">
+    <Type Name="lkp_StaffInfo">
+      <Column Name="StaffID" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JoiningDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StaffAge" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="StaffSex" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_StrengthUnit" Member="lkp_StrengthUnits">
+    <Type Name="lkp_StrengthUnit">
+      <Column Name="SUCode" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_StrengthUnit_lkp_MedicineName" Member="lkp_MedicineNames" ThisKey="SUCode" OtherKey="SUCode" Type="lkp_MedicineName" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_StudyName" Member="lkp_StudyNames">
+    <Type Name="lkp_StudyName">
+      <Column Name="StudyName" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="lkp_StudyName_PatientBasicInfo" Member="PatientBasicInfos" ThisKey="StudyName" OtherKey="StudyName" Type="PatientBasicInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_TestName" Member="lkp_TestNames">
+    <Type Name="lkp_TestName">
+      <Column Name="TNCode" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TNDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="lkp_TestName_lkp_TestNameDetail" Member="lkp_TestNameDetails" ThisKey="TNCode" OtherKey="TNCode" Type="lkp_TestNameDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_TestNameDetails" Member="lkp_TestNameDetails">
+    <Type Name="lkp_TestNameDetail">
+      <Column Name="TNDCode" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TNCode" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="TestName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TestFee" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UnitType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="RefValue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="lkp_TestNameDetail_LabTestInfoDetail" Member="LabTestInfoDetails" ThisKey="TNDCode" OtherKey="TNDCode" Type="LabTestInfoDetail" />
+      <Association Name="lkp_TestName_lkp_TestNameDetail" Member="lkp_TestName" ThisKey="TNCode" OtherKey="TNCode" Type="lkp_TestName" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_ThanaUpzilla" Member="lkp_ThanaUpzillas">
+    <Type Name="lkp_ThanaUpzilla">
+      <Column Name="DistrictCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThanaCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThanaName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_TransectionType" Member="lkp_TransectionTypes">
+    <Type Name="lkp_TransectionType">
+      <Column Name="TTCode" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TTDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="lkp_TransectionType_TransectionDetail" Member="TransectionDetails" ThisKey="TTCode" OtherKey="TranType" Type="TransectionDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Treatment" Member="lkp_Treatments">
+    <Type Name="lkp_Treatment">
+      <Column Name="TreCode" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TreDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TreDescBangla" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="lkp_Treatment_MedicineDetail" Member="MedicineDetails" ThisKey="TreCode" OtherKey="TreCode" Type="MedicineDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Union" Member="lkp_Unions">
+    <Type Name="lkp_Union">
+      <Column Name="DistrictCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThanaCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnionCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnionName" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lkp_Village" Member="lkp_Villages">
+    <Type Name="lkp_Village">
+      <Column Name="DistrictCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThanaCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnionCode" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VillageCode" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VillageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MedicineDetails" Member="MedicineDetails">
+    <Type Name="MedicineDetail">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MNCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MedQty" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="FreCode" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TreCode" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MedicinePrice" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="MedDispuse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MedReqQty" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MedDispuseDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ClinicVisitHistory_MedicineDetail" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_Frequency_MedicineDetail" Member="lkp_Frequency" ThisKey="FreCode" OtherKey="FreCode" Type="lkp_Frequency" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="lkp_MedicineName_MedicineDetail" Member="lkp_MedicineName" ThisKey="MNCode" OtherKey="MNCode" Type="lkp_MedicineName" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_Treatment_MedicineDetail" Member="lkp_Treatment" ThisKey="TreCode" OtherKey="TreCode" Type="lkp_Treatment" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MedicineReceive" Member="MedicineReceives">
+    <Type Name="MedicineReceive">
+      <Column Name="RcvdID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RcvdDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MNCode" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UnitQty" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MCCode" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="PerContain" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="RcvdQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RcvdBy" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MedicineSales" Member="MedicineSales">
+    <Type Name="MedicineSale">
+      <Column Name="MedicineSaleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SaleDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MedDiscountPercent" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalSaleTaka" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="URBPrescription" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MedSaleBy" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MedicineSalesDetails" Member="MedicineSalesDetails">
+    <Type Name="MedicineSalesDetail">
+      <Column Name="MedicineSaleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MedicineCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MedicineSaleQry" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MedicinePrice" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="SaleDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NegativeFindings" Member="NegativeFindings">
+    <Type Name="NegativeFinding">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NFCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_NegativeFinding" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_NegativeFinding_NegativeFinding" Member="lkp_NegativeFinding" ThisKey="NFCode" OtherKey="NFCode" Type="lkp_NegativeFinding" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PatientBasicInfo" Member="PatientBasicInfos">
+    <Type Name="PatientBasicInfo">
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RegistrationDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PatientType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="StudyName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StudyID" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="RelCode" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="PatientName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MaritalStatus" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SpouseName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FatherName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MotherName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NationalID" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="AreaCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="PDistrict" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PThana" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="PUnion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PVillage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RegistrationFee" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="MedDiscount" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="TestDiscount" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyUserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PatientBasicInfo_DoctorVisitInfo" Member="DoctorVisitInfos" ThisKey="PatientID" OtherKey="PatientID" Type="DoctorVisitInfo" />
+      <Association Name="lkp_AreaDetail_PatientBasicInfo" Member="lkp_AreaDetail" ThisKey="AreaCode" OtherKey="AreaCode" Type="lkp_AreaDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="lkp_Relationship_PatientBasicInfo" Member="lkp_Relationship" ThisKey="RelCode" OtherKey="RelCode" Type="lkp_Relationship" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="lkp_StudyName_PatientBasicInfo" Member="lkp_StudyName" ThisKey="StudyName" OtherKey="StudyName" Type="lkp_StudyName" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PositiveFindings" Member="PositiveFindings">
+    <Type Name="PositiveFinding">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PFCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_PositiveFinding" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_PositiveFinding_PositiveFinding" Member="lkp_PositiveFinding" ThisKey="PFCode" OtherKey="PFCode" Type="lkp_PositiveFinding" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProvisionalDx" Member="ProvisionalDxes">
+    <Type Name="ProvisionalDx">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PDCode" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClinicVisitHistory_ProvisionalDx" Member="ClinicVisitHistory" ThisKey="VisitID" OtherKey="VisitID" Type="ClinicVisitHistory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="lkp_ProvisionalDx_ProvisionalDx" Member="lkp_ProvisionalDx" ThisKey="PDCode" OtherKey="PDCode" Type="lkp_ProvisionalDx" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AspNetUsers" Member="AspNetUsers">
+    <Type Name="AspNetUser">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="EmailConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumberConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TwoFactorEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockoutEndDateUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LockoutEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFailedCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="FName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="AspNetUser_AspNetUserClaim" Member="AspNetUserClaims" ThisKey="Id" OtherKey="UserId" Type="AspNetUserClaim" />
+      <Association Name="AspNetUser_AspNetUserLogin" Member="AspNetUserLogins" ThisKey="Id" OtherKey="UserId" Type="AspNetUserLogin" />
+      <Association Name="AspNetUser_AspNetUserRole" Member="AspNetUserRoles" ThisKey="Id" OtherKey="UserId" Type="AspNetUserRole" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_InsertlkpAdviceBangla" Method="sp_InsertlkpAdviceBangla" IsComposable="true">
+    <Parameter Name="Advice" Parameter="advice" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="Demo.usp_DemoReset" Method="usp_DemoReset" IsComposable="true">
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_InsertlkpChiefCompliance" Method="sp_InsertlkpChiefCompliance" IsComposable="true">
+    <Parameter Name="CCGroup" Parameter="cCGroup" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CC" Parameter="cC" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_InsertlkpConfirmDx" Method="sp_InsertlkpConfirmDx" IsComposable="true">
+    <Parameter Name="ConfirmDx" Parameter="confirmDx" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_InsertlkpInvestigations" Method="sp_InsertlkpInvestigations" IsComposable="true">
+    <Parameter Name="Investigation" Parameter="investigation" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_InsertlkpNegativeFindings" Method="sp_InsertlkpNegativeFindings" IsComposable="true">
+    <Parameter Name="PositiveType" Parameter="positiveType" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_InsertlkpPositiveFindings" Method="sp_InsertlkpPositiveFindings" IsComposable="true">
+    <Parameter Name="PositiveType" Parameter="positiveType" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_InsertlkpProvisionalDx" Method="sp_InsertlkpProvisionalDx" IsComposable="true">
+    <Parameter Name="ProvisionalGroup" Parameter="provisionalGroup" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProvisionalDx" Parameter="provisionalDx" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ICDCode" Parameter="iCDCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_rpt_DailyDoctorVisit" Method="sp_rpt_DailyDoctorVisit">
+    <Parameter Name="StDate" Parameter="stDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_rpt_DailyDoctorVisitResult">
+      <Column Name="DoctorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DoctorFee" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_rpt_DailyVisitByDoctor" Method="sp_rpt_DailyVisitByDoctor">
+    <Parameter Name="DoctorName" Parameter="doctorName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="VisitDate" Parameter="visitDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_rpt_DailyVisitByDoctorResult">
+      <Column Name="DoctorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DoctorFee" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_rpt_DoctorVisitMoneyReceipt" Method="sp_rpt_DoctorVisitMoneyReceipt">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.String" DbType="VarChar(11)" />
+    <ElementType Name="sp_rpt_DoctorVisitMoneyReceiptResult">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PatientName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="RegFee" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="DoctorFee" Type="System.Decimal" DbType="SmallMoney" CanBeNull="true" />
+      <Column Name="Visitcount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegistrationFee" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_rpt_LabTestOrder" Method="sp_rpt_LabTestOrder">
+    <Parameter Name="LabTestID" Parameter="labTestID" Type="System.String" DbType="VarChar(12)" />
+    <ElementType Name="sp_rpt_LabTestOrderResult">
+      <Column Name="LabTestID" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="PatientName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TestDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="HeightCM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="WeightKG" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="HipCM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="WaistCM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DoctorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FromOutOfURB" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_rpt_PrescriptionMain" Method="sp_rpt_PrescriptionMain">
+    <Parameter Name="VisitID" Parameter="visitID" Type="System.String" DbType="VarChar(12)" />
+    <ElementType Name="sp_rpt_PrescriptionMainResult">
+      <Column Name="VisitID" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="VisitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PatientName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PatientType" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="StudyID" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="StudyName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DrugHistory" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DrugAllergy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Anemia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cervix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Clubbing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Heart" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Jaundice" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="L_N" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Liver" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lung" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Oedema" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Spleen" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Vagina" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Vulva" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BP" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Pulse" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Temperature" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Others" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NextVisitDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Reffered" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="DoctorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectPatientID" Method="sp_SelectPatientID">
+    <ElementType Name="sp_SelectPatientIDResult">
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectStudyName" Method="sp_SelectStudyName">
+    <ElementType Name="sp_SelectStudyNameResult">
+      <Column Name="StudyName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpAdviceBangla" Method="sp_UpdatelkpAdviceBangla" IsComposable="true">
+    <Parameter Name="AdviceCode" Parameter="adviceCode" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="Advice" Parameter="advice" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpChiefComplaince" Method="sp_UpdatelkpChiefComplaince" IsComposable="true">
+    <Parameter Name="CCCode" Parameter="cCCode" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="CCGroup" Parameter="cCGroup" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CC" Parameter="cC" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpConfirmDx" Method="sp_UpdatelkpConfirmDx" IsComposable="true">
+    <Parameter Name="ConfirmDxCode" Parameter="confirmDxCode" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ConfirmDx" Parameter="confirmDx" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpInvestigations" Method="sp_UpdatelkpInvestigations" IsComposable="true">
+    <Parameter Name="InvestigationCode" Parameter="investigationCode" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Investigation" Parameter="investigation" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpNegativeFindings" Method="sp_UpdatelkpNegativeFindings" IsComposable="true">
+    <Parameter Name="NegativeCode" Parameter="negativeCode" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="NegativeType" Parameter="negativeType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpPositiveFindings" Method="sp_UpdatelkpPositiveFindings" IsComposable="true">
+    <Parameter Name="PositiveCode" Parameter="positiveCode" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="PositiveType" Parameter="positiveType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_UpdatelkpProvisionalDx" Method="sp_UpdatelkpProvisionalDx" IsComposable="true">
+    <Parameter Name="ProvisionalDxCode" Parameter="provisionalDxCode" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ProvisionalGroup" Parameter="provisionalGroup" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProvisionalDx" Parameter="provisionalDx" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ICDCode" Parameter="iCDCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="RetValue" Parameter="retValue" Type="System.String" DbType="NVarChar(20)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="Demo.usp_DemoInitSeed" Method="usp_DemoInitSeed" IsComposable="true">
+    <Parameter Name="items_per_order" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+</Database>
